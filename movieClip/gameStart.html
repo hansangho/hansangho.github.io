@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	*{ margin:0; padding:0; }
+	#box {
+		background-color: #ff9900;
+		width: 220px;
+		height: 140px;
+		background-image:url('imgs/seqImg_002.jpg'); -webkit-background-size:223px 13720px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery_182_min.js"></script>
+<script type="text/javascript" src="js/movieClip.min.js"></script>
+</head>
+<body>
+
+	<div id='cont'>
+		<div id="box"></div>
+	</div>
+
+<script type="text/javascript">
+
+	var clip01 = new movieClip({
+		selector: '#box',
+		frameRate: 30,
+		height: 140,
+		max: 97
+	});
+
+	jQuery('#cont').on('mouseover', '#box', function (e) {
+		clip01.play();
+	});
+
+	jQuery('#cont').on('mouseout', '#box', function (e) {
+		clip01.play({speed:-4});
+	});
+
+</script>
+</body>
+</html>

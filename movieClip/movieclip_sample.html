@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	*{ margin:0; padding:0; }
+	#box {
+		background-color: #ff9900;
+		width: 220px;
+		height: 140px;
+		background-image:url('imgs/seqImg_001.gif'); -webkit-background-size:222px 13580px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery_182_min.js"></script>
+<script type="text/javascript" src="js/movieClip.min.js"></script>
+</head>
+<body>
+
+	<div id='cont'>
+		<div id="box"></div>
+	</div>
+	<div id="btns">
+		<div><button class="btn1">play</button></div>
+		<div><button class="btn2">play loop</button></div>
+		<div><button class="btn3">play rewind loop</button></div>
+		<div><button class="btn4">play to 50</button></div>
+		<div><button class="btn5">play speed*4</button></div>
+		<div><button class="btn6">goto And play 50-70</button></div>
+		<div><button class="btn7">goto And play 90-40 callback function</button></div>
+		<div><button class="btn8">stop 30</button></div>
+	</div>
+
+<script type="text/javascript">
+
+	var clip01 = new movieClip({
+		selector: '#box',
+		frameRate: 30,
+		width: 0,
+		height: 140,
+		max: 97
+	});
+
+
+	jQuery('#cont').on('mouseover', '#box', function (e) {
+		clip01.play({});
+	});
+
+	jQuery('#cont').on('mouseout', '#box', function (e) {
+		clip01.play({speed:-3});
+	});
+
+
+	jQuery('#btns').on('click', '.btn1', function (e) {
+		clip01.play({});
+	});
+
+	jQuery('#btns').on('click', '.btn2', function (e) {
+		clip01.play({loop:true});
+	});
+
+	jQuery('#btns').on('click', '.btn3', function (e) {
+		clip01.play({speed:-1, loop:true});
+	});
+
+	jQuery('#btns').on('click', '.btn4', function (e) {
+		clip01.play({end:50});
+	});
+
+	jQuery('#btns').on('click', '.btn5', function (e) {
+		clip01.play({speed:4});
+	});
+
+	jQuery('#btns').on('click', '.btn6', function (e) {
+		clip01.play({start:50, end:70});
+	});
+
+	jQuery('#btns').on('click', '.btn7', function (e) {
+		clip01.play({speed:-1, start:90, end:40, callback: callme, callbackParam:'please'});
+	});
+
+	jQuery('#btns').on('click', '.btn8', function (e) {
+		clip01.stop({end:30});
+	});
+
+
+
+
+
+
+
+	
+	function callme(param){
+		console.log(param, '-----call me call me');
+	}
+
+</script>
+</body>
+</html>

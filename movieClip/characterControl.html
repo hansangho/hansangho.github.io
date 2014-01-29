@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{ margin:0; padding:0; }
+		#box {
+			background-color: #ff9900;
+			width: 300px;
+			height: 300px;
+			background-image:url('imgs/scullani.jpg'); -webkit-background-size:300px 30000px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery_182_min.js"></script>
+	<script type="text/javascript" src="js/movieClip.min.js"></script>
+</head>
+
+<body>
+	<div id='cont'>
+		<div id="box"></div>
+	</div>
+	<div id="btns">
+		<div><button class="btn2">고개 까딱</button></div>
+		<div><button class="btn3">경례</button></div>
+		<div><button class="btn4">점프</button></div>
+		<div><button class="btn5">댄스 댄스</button></div>
+		<div><button class="btn6">안녕</button></div>
+		<div><button class="btn7">점프 하고 고개까딱 하고 경례</button></div>
+		<div><button class="btn1">all play</button></div>
+	</div>
+
+<script type="text/javascript">
+
+	var clip01 = new movieClip({
+		selector: '#box',
+		frameRate: 24,
+		width: 0,
+		height: 300,
+		max: 100
+	});
+	
+	
+	var goodbyeleng = 0;
+
+
+	jQuery('#btns').on('click', '.btn1', function (e) {
+		clip01.play({start:1});
+	});
+
+	jQuery('#btns').on('click', '.btn2', function (e) {
+		clip01.play({start:1, end:20});
+	});
+
+	jQuery('#btns').on('click', '.btn3', function (e) {
+		clip01.play({start:20, end:40});
+	});
+
+	jQuery('#btns').on('click', '.btn4', function (e) {
+		clip01.play({start:40, end:55});
+	});
+
+	jQuery('#btns').on('click', '.btn5', function (e) {
+		clip01.play({start:55, end:70, callback: callme, callbackParam:[55,70]});
+	});
+
+	jQuery('#btns').on('click', '.btn6', function (e) {
+		goodbyeleng = 0;
+		clip01.play({start:70, end:94, callback: callme2});
+	});
+
+	jQuery('#btns').on('click', '.btn7', function (e) {
+		clip01.play({start:40, end:55, callback: callme3});
+	});
+
+	jQuery('#btns').on('click', '.btn8', function (e) {
+	});
+
+
+
+
+
+
+
+	
+	function callme(param){
+		console.log(param, '-----call me call me');
+		clip01.play({start:param[0], end:param[1]});
+	}
+	
+	function callme2(){
+		if(goodbyeleng>2){
+			clip01.play({start:94, end:100});
+		}else{
+			clip01.play({start:76, end:94, callback: callme2});
+			goodbyeleng++;
+		}
+	}
+	
+	
+	function callme3(){
+		clip01.play({start:1, end:20, callback: callme4});
+	}
+	
+	function callme4(){
+		clip01.play({start:20, end:40});
+	}
+
+</script>
+</body>
+
+</html>
