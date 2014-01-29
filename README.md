@@ -3,7 +3,9 @@
 ### INTRO
 
 [movieClip.js][movieClipurl]
-[passwordCheck][passwordCheckurl]
 
 [movieClipurl]: http://hansangho.github.io/movieClip/
+
+[passwordCheck][passwordCheckurl]
+
 [passwordCheckurl]: http://hansangho.github.io/passwordCheck/
