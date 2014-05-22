@@ -42,6 +42,7 @@
                 FB.init({appId: '587406214706706', status:true, xfbml:true });
 
                 $('.Roboto').on('click', function(event) {
+                    /*
                     FB.ui(
                         {
                             method: 'stream.share',
@@ -52,6 +53,39 @@
                             console.log(response); 
                         }
                     );
+                    */
+
+
+                    FB.ui(
+                       {
+                         method: 'feed',
+                         name: 'Facebook Dialogs',
+                         link: 'http://www.daum.net/',
+                         caption: 'Reference Documentation',
+                         description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+                         message: 'Facebook Dialogs are easy!'
+                       },
+                       function(response) {
+                         if (response && response.post_id) {
+                           alert('Post was published.');
+                         } else {
+                           alert('Post was not published.');
+                         }
+                       }
+                     );
+
+
+
+
+
+
+
+
+
+
+
+
+
                 });
 
             });
