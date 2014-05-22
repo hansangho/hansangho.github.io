@@ -44,8 +44,9 @@
                 $('.Roboto').on('click', function(event) {
                     FB.ui(
                         {
-                            method: 'stream.publish',
-                            message: 'msg....'
+                            method: 'stream.share',
+                            message: 'daum..daum..daum',
+                            u: 'http://www.daum.net/'
                         }, 
                         function(response) { 
                             console.log(response); 
