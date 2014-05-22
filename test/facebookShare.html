@@ -58,15 +58,15 @@
 
                     FB.ui(
                        {
-                         method: 'apprequests',
-                          message: 'You should learn more about this awesome game.',
-                          data: 'tracking information for the user'
+                         method: 'feed',
+                          name: '아이온 PC ZONE',
+                          caption: '경기도 성남시 분당구 정자동158-2번지 대명프라자3층',
+                          link: 'http://local.daum.net/map/look?p=37.56657409045131,126.9781825909176', 
+                          description: 'tel:031-711-5587'
                        },
                        function(response) {
                          if (response && response.post_id) {
-                           alert('Post was published.');
                          } else {
-                           alert('Post was not published.');
                          }
                        }
                      );
