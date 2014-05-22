@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,200,400">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+        <script src="http://connect.facebook.net/ko_KR/all.js"></script>
+        <style>
+            body {
+            margin: 0px;
+                line-height: 1.7;
+            }
+
+            .box1 {
+                padding: 20px;
+                background-color: #3c91c8;
+            }
+
+            .Roboto {
+                color: #fff;
+                font-family: Roboto, sans-serif;
+                font-size: 30px;
+                font-weight: 100;
+                letter-spacing: -0.5px;
+            }
+
+            .nanumgothic {
+                font-family: 'Nanum Gothic', sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">
+            <div class="Roboto">facebook share</div>
+        </div>
+
+
+
+        <script>
+            $(function() {
+
+                $('.Roboto').on('click', function(event) {
+                    FB.init({appId: '587406214706706', status:true, xfbml:true });
+                    FB.ui(
+                        {method: 'feed', message: 'msg....'}, 
+                        function(response) { 
+                            console.log(response); 
+                        }
+                    );
+                });
+
+            });
+        </script>
+        
+    </body>
+</html>
+
+
