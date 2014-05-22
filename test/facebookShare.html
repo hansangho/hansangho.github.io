@@ -39,11 +39,14 @@
 
         <script>
             $(function() {
+                FB.init({appId: '587406214706706', status:true, xfbml:true });
 
                 $('.Roboto').on('click', function(event) {
-                    FB.init({appId: '587406214706706', status:true, xfbml:true });
                     FB.ui(
-                        {method: 'feed', message: 'msg....'}, 
+                        {
+                            method: 'stream.publish',
+                            message: 'msg....'
+                        }, 
                         function(response) { 
                             console.log(response); 
                         }
