@@ -118,12 +118,12 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-xl {
-    padding: 20px 40px;
+    padding: 15px 23px;
     border-color: #fed136;
-    border-radius: 3px;
+    border-radius: 40px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 700;
     color: #fff;
     background-color: #fed136;
