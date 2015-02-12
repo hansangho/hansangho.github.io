@@ -328,6 +328,7 @@ section h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 40px;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 section h3.section-subheading {
@@ -864,4 +865,8 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #fed136;
+}
+
+.nanumgothic {
+  font-family: 'Nanum Gothic', sans-serif;
 }
