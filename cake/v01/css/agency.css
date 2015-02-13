@@ -238,10 +238,11 @@ fieldset[disabled] .btn-xl.active {
     .navbar-default {
         padding: 25px 0;
         border: 0;
-        background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
+        background-color: rgba(34, 34, 34, 0);
+
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        transition: all .3s ease-out;
     }
 
     .navbar-default .navbar-brand {
@@ -257,7 +258,7 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-color: rgba(34, 34, 34, 0.7);
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -516,8 +517,8 @@ section h3.section-subheading {
 }
 
 .timeline>li .timeline-image h4 {
-    margin-top: 12px;
-    font-size: 10px;
+    margin-top: 17px;
+    font-size: 30px;
     line-height: 14px;
 }
 
@@ -584,8 +585,8 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-image h4 {
-        margin-top: 16px;
-        font-size: 13px;
+        margin-top: 20px;
+        font-size: 40px;
         line-height: 18px;
     }
 
@@ -613,7 +614,7 @@ section h3.section-subheading {
 
     .timeline>li .timeline-image h4 {
         margin-top: 30px;
-        font-size: 18px;
+        font-size: 60px;
         line-height: 26px;
     }
 
@@ -638,7 +639,7 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-image h4 {
-        margin-top: 40px;
+        margin-top: 50px;
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
