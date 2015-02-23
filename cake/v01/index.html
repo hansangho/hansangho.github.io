@@ -69,7 +69,7 @@
                         <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading nanumgothic">예약</h4>
-                    <p class="text-muted nanumgothic">원하는 날짜의 2~3일 전에 주문해 주시면 해당일에 수령 하실 수 있습니다.<br>취소/환불/날짜변경은 수령 48시간 전까지만 가능 합니다.</p>
+                    <p class="text-muted nanumgothic">원하는 날짜의 2~3일 전에 주문해 주시면 해당일에 수령 하실 수 있습니다. 취소/환불/날짜변경은 수령 48시간 전까지만 가능 합니다.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -202,6 +202,8 @@
             </div>
         </div>
     </section>
+    
+    <div id='mapContainer' style='width:400px;height:300px'></div>
 
     <footer>
         <div class="container">
@@ -222,25 +224,24 @@
 
 
 <SCRIPT LANGUAGE="JavaScript" src="http://maps.naver.com/js/naverMap.naver?key=a40207b5ee6228c54222a16045037280"></SCRIPT>
-<div id='mapContainer' style='width:400px;height:300px'></div>
 <SCRIPT LANGUAGE="JavaScript">
-var map_x=321524;var map_y=533234;
-var tag_point= new NPoint(map_x,map_y);
-function createMarker(pos,content) {
-    var iconUrl = 'http://static.naver.com/local/map_img/set/icos_free_'+String.fromCharCode(97)+'.gif';
-    var marker = new NMark(pos,new NIcon(iconUrl,new NSize(15,14)));
-    infowin=new NInfoWindow();
-    mapObj.addOverlay(infowin);
-    infowin.set(pos,"<TABLE style='width:90px;height:30px;border:solid 1px #666666; background-color:#ffffff'><TR><TD>"+content+"</TD></TR></TABLE>");
-    infowin.showWindow();return marker;
-}
-    var mapObj = new NMap(document.getElementById('mapContainer'),400,300);
-        mapObj.setCenterAndZoom(new NPoint(map_x,map_y),3);
-    var zoom =new NZoomControl();
-        zoom.setAlign("left");
-        zoom.setValign("top");
-    mapObj.addControl(zoom);
-    mapObj.addOverlay(createMarker(tag_point,"규원이 돌잔치 큐브아고라"));
+    var map_x=321524;var map_y=533234;
+    var tag_point= new NPoint(map_x,map_y);
+    function createMarker(pos,content) {
+        var iconUrl = 'http://static.naver.com/local/map_img/set/icos_free_'+String.fromCharCode(97)+'.gif';
+        var marker = new NMark(pos,new NIcon(iconUrl,new NSize(15,14)));
+        infowin=new NInfoWindow();
+        mapObj.addOverlay(infowin);
+        infowin.set(pos,"<TABLE style='width:90px;height:30px;border:solid 1px #666666; background-color:#ffffff'><TR><TD>"+content+"</TD></TR></TABLE>");
+        infowin.showWindow();return marker;
+    }
+        var mapObj = new NMap(document.getElementById('mapContainer'),400,300);
+            mapObj.setCenterAndZoom(new NPoint(map_x,map_y),3);
+        var zoom =new NZoomControl();
+            zoom.setAlign("left");
+            zoom.setValign("top");
+        mapObj.addControl(zoom);
+        mapObj.addOverlay(createMarker(tag_point,"규원이 돌잔치 큐브아고라"));
 </SCRIPT>
 
 
