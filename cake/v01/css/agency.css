@@ -45,6 +45,12 @@ a.active {
     color: #fec503;
 }
 
+p strong {
+    font-weight: 100;
+    font-size: 18px;
+    color: #000;
+}
+
 h1,
 h2,
 h3,
@@ -115,6 +121,10 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary .badge {
     color: #fed136;
     background-color: #fff;
+}
+
+#sheet {
+    background: #000002 url(../img/header-bg4.jpg) no-repeat center top;
 }
 
 .btn-xl {
@@ -275,7 +285,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(../img/header-bg3.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -372,6 +382,7 @@ section h2.section-heading.nanumgothic {
 .nanumgothic {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 12px;
+    font-weight: 100;
 }
 
 
@@ -400,6 +411,8 @@ section h3.section-subheading.nanumgothic {
 .service-heading {
     margin: 15px 0;
     text-transform: none;
+    font-size: 18px;
+    font-weight: 100;
 }
 
 #portfolio .portfolio-item {
@@ -467,6 +480,13 @@ section h3.section-subheading.nanumgothic {
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
     font-style: italic;
+}
+
+#portfolio .portfolio-item .portfolio-caption p.nanumgothic {
+    margin: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px;
+    font-style: normal;
 }
 
 #portfolio * {
