@@ -59,7 +59,7 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 100;
 }
 
 .img-centered {
@@ -376,7 +376,7 @@ section h2.section-heading.nanumgothic {
     margin-bottom: 15px;
     font-size: 40px;
     font-family: 'Nanum Gothic', sans-serif;
-    font-weight: 800;
+    font-weight: 100;
 }
 
 .nanumgothic {
