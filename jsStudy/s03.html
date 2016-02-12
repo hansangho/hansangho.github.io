@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Source</title>
+    </head>
+
+    <body>
+
+
+        <h2>Class 를 만드는 방법</h2>
+        <p> </p>
+        <p>일반적으로 대문자로 시작 : Apple, Man</p>
+        <p>속성: Property</p>
+        <p>메서드: methods</p>
+        <p> </p><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="8d65a158-13bb-4275-b46e-68adcdcb779d"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// function
+        function Apple (type) {
+            this.type = type;
+            this.color = "red";
+            this.getInfo = function() {
+                return this.color + ' ' + this.type + ' apple';
+            };
+        }
+         
+        // prototype
+        function Apple (type) {
+            this.type = type;
+            this.color = "red";
+        }
+        Apple.prototype.getInfo = function() {
+            return this.color + ' ' + this.type + ' apple';
+        };
+
+        // 사용법은 같다
+        var apple = new Apple('macintosh');
+        apple.color = "reddish";
+        alert(apple.getInfo());
+
+        // 위는 아래와 같이 풀어 쓸 수 있다
+        var apple = {};
+        apple.__proto__ = Apple.prototype;
+        Apple.call( apple );
+         ]]></ac:plain-text-body></ac:structured-macro>
+        <p> </p>
+        <h2>상속</h2><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="3f121125-a35e-441e-a400-c45c724529f2"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[function Person() {}
+        Person.prototype.walk = function(){
+          alert ('I am walking!');
+        };
+        Person.prototype.sayHello = function(){
+          alert ('hello');
+        };
+
+        function Student() {
+        }
+        Student.prototype = new Person();
+        Student.prototype.constructor = Student;
+         
+        Student.prototype.sayHello = function(){
+          alert('hi, I am a student');
+        }
+
+        Student.prototype.sayGoodBye = function(){
+          alert('goodBye');
+        }
+
+        var student1 = new Student();
+            student1.sayHello();
+            student1.walk();
+            student1.sayGoodBye();
+
+        alert(student1 instanceof Person); // true
+        alert(student1 instanceof Student); // true]]></ac:plain-text-body></ac:structured-macro>
+        <p> </p>
+        <h3>과제</h3>
+        <p>현재 자신이 할 수 없지만 만들어 보고 싶었거나 이런걸 만들게 되고 싶다 하는 앱을 생각하고</p>
+        <p>이유와 기능 정의를 짧고 간단하게 정리하여 제출하기</p>
+        <p> </p>
+        <p> </p>
+        <p> </p>
+
+
+    </body>
+</html>
