@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>View Source</title>
+        <title>study : 02</title>
+        <link rel="stylesheet" href="default.min.css">
+        <script src="jquery-2.1.1.min.js"></script>
+        <script src="highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
     <body>
@@ -11,7 +15,9 @@
 <ol>
 <li>function 명령</li>
 <li>function 리터럴</li>
-<li>Function 생성자 - 일반적으로 사용하지 않는다</li></ol><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="8d65a158-13bb-4275-b46e-68adcdcb779d"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// function 명령
+<li>Function 생성자 - 일반적으로 사용하지 않는다</li></ol>
+<pre><code class="javascript">
+function 명령
 function myNameIs( _str ){
     return 'My name is '+_str;
 }
@@ -19,9 +25,13 @@ function myNameIs( _str ){
 // function 리터럴
 var myOldIs = function(_str){
     return 'My old is '+_str;
-}]]></ac:plain-text-body></ac:structured-macro>
+}
+
+</code></pre>
 <p> </p>
-<h2>유효 범위 : 스코프 체인</h2><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="d8d49110-6976-4bd8-ba9e-7e2275a84c63"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[var testVar = 'i am global';
+<h2>유효 범위 : 스코프 체인</h2>
+<pre><code class="javascript">
+var testVar = 'i am global';
  
 function scopeTest(){
     var testVar = 'i am test 1'; 
@@ -40,7 +50,9 @@ console.log( testVar );
  
 // i am test 1
 // i am test 2
-// i am global]]></ac:plain-text-body></ac:structured-macro>
+// i am global
+
+</code></pre>
 <p> </p>
 <h2>arguments, callee</h2>
 <ol>
@@ -50,7 +62,9 @@ console.log( testVar );
 <h2>parameter 확장</h2>
 <ol>
 <li>파라미터 갯수가 많고 명확해야 할 경우 Object 로 전달하면 좋다.</li>
-<li>jQuery.extend 함수의 활용 </li></ol><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="62ad0979-16c9-4fb3-93cd-bb57176d46ae"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// none jQuery
+<li>jQuery.extend 함수의 활용 </li></ol>
+<pre><code class="javascript">
+// none jQuery
 function paramTest(_option){
     if(!_option.name) _option.name = 'hansangho';
     if(!_option.age) _option.age = 39;
@@ -68,13 +82,17 @@ function paramJqueryTest(_option){
     jQuery.extend(true, defaultOption, _option);
     console.log(  JSON.stringify(defaultOption) );
 }
-paramJqueryTest({ name: 'bora', age: 29 });]]></ac:plain-text-body></ac:structured-macro>
+paramJqueryTest({ name: 'bora', age: 29 });
+
+</code></pre>
 <p> </p>
 <p> </p>
 <h2>고계함수, 익명함수</h2>
 <ul>
 <li>고계함수: 인수로 전달되는 함수</li>
-<li>익명함수: 인수로 전달 할 경우 익명함수를 많이 이용한다.</li></ul><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="37d5f6b9-a74a-4025-afde-081ef85c256c"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[var sangho = {
+<li>익명함수: 인수로 전달 할 경우 익명함수를 많이 이용한다.</li></ul>
+<pre><code class="javascript">
+var sangho = {
     name: 'sangho',
     cry: '잉잉',
     shout: '멍 멍'
@@ -95,9 +113,13 @@ function shout( data ) {
 }
 humanSound(sangho, cry);
 humanSound(angra, shout);
-humanSound(angra, cry);]]></ac:plain-text-body></ac:structured-macro>
+humanSound(angra, cry);
+
+</code></pre>
 <p> </p>
-<h2>클로저</h2><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="59950d2c-6054-4ec0-a7f6-cc4742c7274f"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[function showName(firstName, lastName) {
+<h2>클로저</h2>
+<pre><code class="javascript">
+function showName(firstName, lastName) {
     var nameIntro = "Your name is ";
     return function () {
         console.log(nameIntro + firstName + " " + lastName);
@@ -106,13 +128,17 @@ humanSound(angra, cry);]]></ac:plain-text-body></ac:structured-macro>
 var nameshow = showName("Michael", "Jackson");
 nameshow();
  
-// Your name is Michael Jackson]]></ac:plain-text-body></ac:structured-macro>
+// Your name is Michael Jackson
+
+</code></pre>
 <p> </p>
 <h2><strong>호이스팅</strong><strong>(Hoisting)</strong></h2>
 <ul>
 <li>변수 선언을 최상단으로 올리는 자바스크립트의 기본 동작</li>
 <li>자바스크립트에서 선언은 최상위로 이동된다.</li></ul>
-<p><strong><br /></strong></p><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="07ac3915-0154-4aaf-b3b7-2a2a3b288ae5"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[var x = 5;
+<p><strong><br /></strong></p>
+<pre><code class="javascript">
+var x = 5;
 console.log(x); // 5
 console.log(y); // undefined
 var y = 7;
@@ -125,7 +151,9 @@ var y;
 x = 5;
 console.log(x); // 5
 console.log(y); // undefined
-y = 7;]]></ac:plain-text-body></ac:structured-macro>
+y = 7;
+
+</code></pre>
 <p> </p>
 <p> </p>
 <p> </p>

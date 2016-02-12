@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>View Source</title>
+        <title>study : 03</title>
+        <link rel="stylesheet" href="default.min.css">
+        <script src="jquery-2.1.1.min.js"></script>
+        <script src="highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
     <body>
@@ -12,7 +16,10 @@
         <p>일반적으로 대문자로 시작 : Apple, Man</p>
         <p>속성: Property</p>
         <p>메서드: methods</p>
-        <p> </p><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="8d65a158-13bb-4275-b46e-68adcdcb779d"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[// function
+        <p> </p>
+
+        <pre><code class="javascript">
+        function
         function Apple (type) {
             this.type = type;
             this.color = "red";
@@ -39,9 +46,13 @@
         var apple = {};
         apple.__proto__ = Apple.prototype;
         Apple.call( apple );
-         ]]></ac:plain-text-body></ac:structured-macro>
+        </code></pre>
+
+
         <p> </p>
-        <h2>상속</h2><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="3f121125-a35e-441e-a400-c45c724529f2"><ac:parameter ac:name="language">js</ac:parameter><ac:plain-text-body><![CDATA[function Person() {}
+        <h2>상속</h2>
+        <pre><code class="javascript">
+        function Person() {}
         Person.prototype.walk = function(){
           alert ('I am walking!');
         };
@@ -68,7 +79,9 @@
             student1.sayGoodBye();
 
         alert(student1 instanceof Person); // true
-        alert(student1 instanceof Student); // true]]></ac:plain-text-body></ac:structured-macro>
+        alert(student1 instanceof Student); // true
+        </code></pre>
+
         <p> </p>
         <h3>과제</h3>
         <p>현재 자신이 할 수 없지만 만들어 보고 싶었거나 이런걸 만들게 되고 싶다 하는 앱을 생각하고</p>
