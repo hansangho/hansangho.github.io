@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Study : 002</title>
+    <style type="text/css">
+        body {
+            text-align: left;
+            font-family: '돋움',dotum,Helvetica,sans-serif;
+            font-size: 11px;
+            color: #333;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        .contents {
+            margin: 10px;
+            width: 100%;
+        }
+
+        .resultBtn {
+            border: 1px solid #ccc;
+            padding: 3px;
+            margin: 10px auto;
+        }
+
+        .resultBox {
+            font-size: 30px;
+        }
+        
+        .homeWork {
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="http://static.plaync.co.kr/common/js/lib/jquery_1102_min.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+
+        </header>
+
+        <div class="workFlow">
+            <ol>
+                <li>-순서-</li>
+                <li>결과보기 버튼의 이벤트 리스너를 만든다</li>
+                <li>두개의 파라메터를 전달 받아 더한후 그 값을 리턴하는 함수를 만든다</li>
+                <li>이벤트 리스너에서 더하기 함수를 실행하여 얻은 결과 값을 결과 창에 보여준다</li>
+            </ol>
+        </div>
+
+        <div class="homeWork">
+            <ul>
+                <li>-숙제-</li>
+                <li>셀렉트 박스로 + - * / 를 선택 가능하도록</li>
+                <li>숫자가 아닌 값이 들어왔을 경우 경고창 나오게</li>
+            </ul>
+        </div>
+
+        <div class="contents">
+            <div class="box num1"><input type="text"></div>
+            <!-- <div class="box">+</div> -->
+            <select name="calculation" id="calculation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <div class="box num2"><input type="text"></div>
+            <button class="resultBtn">show result</button>
+            <div class="resultBox">0</div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+    $(function() {
+
+
+        function SumInput(_num1, _num2) {
+            var _num1 = parseInt($('.num1 input').val());
+            var _num2 = parseInt($('.num2 input').val());
+            var cal = $('#calculation > option:selected').val();
+
+            if(cal=='+') {
+                var result = _num1 + _num2;
+            } else if (cal == '-') {
+                var result = _num1 - _num2;
+            } else if (cal == '*') {
+                var result = _num1 * _num2;
+            } else {
+                var result = _num1 / _num2
+            }
+            
+            if (isNaN(result)) {
+                $('.resultBox').text('숫자를 입력 하시라고!');
+            } else {
+                $('.resultBox').text(result);
+            }
+        }
+
+        $('.resultBtn').click(SumInput);
+
+
+    });
+
+    /*
+        1. SumInput 함수를 재활용이 힘들다
+        2. _num1, _num2의 파라미터는 무엇인지?
+    */
+
+    </script>
+
+</body>
+</html>

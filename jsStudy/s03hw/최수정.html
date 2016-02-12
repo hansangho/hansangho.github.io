@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Study : 002</title>
+	<style type="text/css">
+		body {
+			text-align: left;
+			font-family: '돋움',dotum,Helvetica,sans-serif;
+			font-size: 11px;
+			color: #333;
+		}
+
+		input {
+			border: 1px solid #ccc;
+			padding: 3px;
+		}
+
+		.contents {
+			margin: 10px;
+			width: 100%;
+		}
+
+		.resultBtn {
+			border: 1px solid #ccc;
+			padding: 3px;
+			margin: 10px auto;
+		}
+
+		.resultBox {
+			font-size: 30px;
+		}
+
+		.homeWork {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<header>
+			
+		</header>
+
+		<div class="workFlow">
+			<ol>
+				<li>-순서-</li>
+				<li>결과보기 버튼의 이벤트 리스너를 만든다</li>
+				<li>두개의 파라메터를 전달 받아 더한후 그 값을 리턴하는 함수를 만든다</li>
+				<li>이벤트 리스너에서 더하기 함수를 실행하여 얻은 결과 값을 결과 창에 보여준다</li>
+			</ol>
+		</div>
+
+		<div class="homeWork">
+			<ul>
+				<li>-숙제-</li>
+				<li>셀렉트 박스로 + - * / 를 선택 가능하도록</li>
+				<li>숫자가 아닌 값이 들어왔을 경우 경고창 나오게</li>
+			</ul>
+		</div>
+
+		<div class="contents">
+			<div class="box num1"><input type="text"></div>
+			<!--<div class="box">+</div>-->
+			<select class="selectType">
+				<option selected="selected" value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<div class="box num2"><input type="text"></div>
+			<button class="resultBtn">show result</button>
+			<div class="resultBox">0</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	$(function() {
+				
+		$('.resultBtn').on('click', function() {
+
+			var num = $("input:text").val();
+			var num1 = Number($('.num1').find('input').val());
+			var num2 = Number($('.num2').find('input').val());
+			var selectType = $('.selectType option:selected').val();
+			var result = 0;
+
+			switch(selectType) {
+				case '+' :
+					result = num1 +  num2;
+					break;
+				case '-' :
+					result = num1 -  num2;
+					break;
+				case '*' :
+					result = num1 *  num2;
+					break;
+				case '/' :
+					result = num1 /  num2;
+					break;
+			} 
+
+			if ( num == ''  || isNaN(num1) || isNaN(num2) ) {
+				alert('숫자를 입력해 주세요.');
+			} else {
+				$('.resultBox').html(result);
+			}
+		});
+
+	});
+    /*
+        1. 함수를 재활용이 힘들다
+        2. switch 문 안에서 var 변수 선언을 각자 하는것 보다 밖에서 한번 하고 사용하는 것이 좋다.
+    */
+	</script>
+</body>
+</html>

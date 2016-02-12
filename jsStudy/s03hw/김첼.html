@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Study : 002</title>
+    <style type="text/css">
+        body {
+            text-align: left;
+            font-family: '돋움',dotum,Helvetica,sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        .contents {
+            margin: 10px;
+            width: 100%;
+        }
+        .contents .box { display: inline-block }
+
+        .resultBtn {
+            border: 1px solid #ccc;
+            padding: 3px;
+            margin: 10px auto;
+        }
+
+        .resultBox {
+            font-size: 30px;
+        }
+        
+        .homeWork {
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="http://static.plaync.co.kr/common/js/lib/jquery_1102_min.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+
+        </header>
+
+        <div class="workFlow">
+            <ol>
+                <li>-순서-</li>
+                <li>결과보기 버튼의 이벤트 리스너를 만든다</li>
+                <li>두개의 파라메터를 전달 받아 더한후 그 값을 리턴하는 함수를 만든다</li>
+                <li>이벤트 리스너에서 더하기 함수를 실행하여 얻은 결과 값을 결과 창에 보여준다</li>
+            </ol>
+        </div>
+
+        <div class="homeWork">
+            <ul>
+                <li>-숙제-</li>
+                <li>셀렉트 박스로 + - * / 를 선택 가능하도록</li>
+                <li>숫자가 아닌 값이 들어왔을 경우 경고창 나오게</li>
+            </ul>
+        </div>
+
+        <div class="contents">
+            <div class="box num1"><input type="text"></div>
+            <div class="box">
+                <select name="calcOption" id="calcOption">
+                    <option value="1">+</option>
+                    <option value="2">-</option>
+                    <option value="3">*</option>
+                    <option value="4">/</option>
+                </select>
+            </div>
+            <div class="box num2"><input type="text"></div>
+            <button class="resultBtn">show result</button>
+            <div class="resultBox">0</div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+    $(function() {
+        // 입력받은 문자가 숫자인지 확인
+        jQuery( 'input').keydown(function(event) {
+            if(event.keyCode >= 48 && event.keyCode <= 57) {
+                return true;
+            } else {
+                alert( '숫자만 입력해주세요!' );
+                jQuery(this).val('');
+            }
+        });
+
+        // select값에 따라 +-*/ 계산
+        function calc(_num1, _num2) {
+            var $num1 = Number(jQuery( '.num1' ).find( 'input' ).val());
+            var $num2 = Number(jQuery( '.num2' ).find( 'input' ).val());
+            var $selected = jQuery('#calcOption').val();
+            if( $selected == '1' ) {
+                return $num1 + $num2;
+            } else if ( $selected == '2' ) return $num1 - $num2;
+            else if ( $selected == '3' ) return $num1 * $num2;
+            else if ( $selected == '4' ) return $num1 / $num2;
+        };
+
+        /// 결과버튼 클릭 시 결과값 출력
+        jQuery('.resultBtn').click(function () {
+            jQuery( '.resultBox').text( calc() );
+        });
+    });
+
+
+    /*
+        1. calc 함수를 재활용이 힘들다
+        2. if else가 중복될 경우 문의 경우 {} 괄호를 사용해 주는 것이 좋다. 혹은 switch case 문을 사용하는 것이 좋다
+    */
+
+
+
+
+    </script>
+
+</body>
+</html>
